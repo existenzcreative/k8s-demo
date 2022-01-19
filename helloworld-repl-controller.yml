@@ -1,1 +1,20 @@
-
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloworld-controller
+spec:
+  replicas: 2
+  selector:
+    app: helloworld-controller
+  template:
+    metadata:
+      name: helloworld-controller
+      labels:
+        app: helloworld-controller
+    spec:
+      containers:
+        - name: nodejs-docker-demo
+          image: jdailama/nodejs-docker-demo
+          ports:
+          - name: nodejs-port
+            containerPort: 3000
