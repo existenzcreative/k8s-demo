@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: helloworld-deployment
+    spec:
+      containers:
+      - name: nodejs-docker-demo
+        image: jdailama/nodejs-docker-demo
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
